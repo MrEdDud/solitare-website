@@ -18,42 +18,29 @@ body {
 .container-style {
     background-color: #386641;
     border: 0, 0, 0, 0;
-    border-left: 16px solid #6A994E;
-    border-right: 16px solid #6A994E;
+    border-left: 1.6vh solid #6A994E;
+    border-right: 1.6vh solid #6A994E;
     color: white;
     max-width: 100%;
     max-height: 100%;
 }
 
-/* Styling for the expanded container for the game */
-.container-expand {
-    max-width: 1000px;
-    max-height: 800px;
-}
-
 /* Title text styling */
 .title {
-    font-size: 64px;
+    font-size: 6.4vh;
     text-align: center;
-    padding-top: 10%;
-}
-
-/* Smaller title text styling */
-.small-title {
-    font-size: 32px;
-    text-align: center;
-    padding-top: 10%;
+    padding-top: 10vh;
 }
 
 .small-text {
-    font-size: 16px;
+    font-size: 1.6vh;
     text-align: center;
 }
 
 /* Styling for a decorative line */
 hr {
-    border: 3px solid #6A994E;
-    margin-top: 50px;
+    border: 0.3vh solid #6A994E;
+    margin-top: 5vh;
     width: 80%;
 }
 
@@ -63,8 +50,8 @@ ul {
     margin: 0;
     overflow: hidden;
     background-color: #386641;
-    border-bottom: #6A994E solid 10px;
-    padding-left: 75px;
+    border-bottom: #6A994E solid 1vh;
+    padding-left: 10vh;
     
 }
 
@@ -75,9 +62,9 @@ ul li {float: left;}
 ul li a {
     display: block;
     color: white;
-    padding: 16px;
+    padding: 2vh;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 2.4vh;
     transition: 0.3s;
 }
 
@@ -87,28 +74,28 @@ ul li a:hover {color: #bbbbbb;}
 /* Input box for username and password */
 .input {
     background-color: #252422;
-    border: 7px solid #6A994E;
-    border-radius: 10px;
+    border: 0.7vh solid #6A994E;
+    border-radius: 1vh;
     font-weight: bold;
-    margin: 80px auto;
-    font-size: 24px;
+    margin: 8vh auto;
+    font-size: 2.4vh;
     color: white;
     display: block;
-    padding: 16px;
+    padding: 2vh;
     width: 70%;
 }
 
 /* Input box for registration page */
 .input-r {
     background-color: #252422;
-    border: 7px solid #6A994E;
-    border-radius: 10px;
+    border: 0.7vh solid #6A994E;
+    border-radius: 1vh;
     font-weight: bold;
-    margin: 40px auto;
-    font-size: 24px;
+    margin: 4vh auto;
+    font-size: 2.4vh;
     color: white;
     display: block;
-    padding: 16px;
+    padding: 2vh;
     width: 70%;
 }
 
@@ -117,12 +104,12 @@ ul li a:hover {color: #bbbbbb;}
     background-color: #6A994E;
     border-radius: 15px;
     color: white;
-    font-size: 24px;
+    font-size: 2.4vh;
     text-align: center;
     text-decoration: none;
     width: 50%;
-    padding: 16px;
-    margin: 80px auto 32px auto;
+    padding: 2vh;
+    margin: 8vh auto 3.2vh auto;
     transition: 0.3s;
 }
 
@@ -141,27 +128,27 @@ ul li a:hover {color: #bbbbbb;}
 /* Styling for the text in the table */
 th {
     width: 50%;
-    padding: 24px;
+    padding: 3vh;
 }
 
 /* Styling for the table */
 .scores {
     width: 100%;
     text-align: center;
-    font-size: 32px;
+    font-size: 3.2vh;
 }
 
 .falling-card {
     position: absolute;
-    width: 192px;
-    height: 192px;
+    width: 19.2vh;
+    height: 19.2vh;
     opacity: 0.5;
     animation: animate 10s linear forwards;
     z-index: -1;
 } 
 @keyframes animate {
     0% {
-        transform: translateY(-128px) rotate(0deg);
+        transform: translateY(-12.8vh) rotate(0deg);
         opacity: 0.5;
     }
     100% {
