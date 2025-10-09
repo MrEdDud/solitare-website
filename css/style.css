@@ -10,7 +10,7 @@ body {
 /* Styling for the containers */
 .container {
     display: grid;
-    grid-template-columns: 25% 45% 25%;
+    grid-template-columns: 27.5% 45% 27.5%;
     grid-template-rows: 100vh 100vh 100vh;
 }
 
@@ -149,4 +149,23 @@ th {
     width: 100%;
     text-align: center;
     font-size: 32px;
+}
+
+.falling-card {
+    position: absolute;
+    width: 192px;
+    height: 192px;
+    opacity: 0.5;
+    animation: animate 10s linear forwards;
+    z-index: -1;
+} 
+@keyframes animate {
+    0% {
+        transform: translateY(-128px) rotate(0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
