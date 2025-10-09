@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Solitare</title>
 </head>
 <body>
+    <ul>
+        <li><a href="index.html">LOGIN</a></li>
+        <li><a id="expand-container">GAME</a></li>
+        <li><a href="leaderboards.html">LEADERBOARDS</a></li>
+    </ul>
     <div class="container">
-        <div>1</div>
-        <div class="signup">2</div>
-        <div>3</div>
+        <div></div>
+        <div class="container-style">   
+            <div class="title">LOGIN</div><hr>
+            <input type="text" placeholder="USERNAME" class="input">
+            <input type="password" placeholder="PASSWORD" class="input">
+            <!-- <ion-icon name="information-outline"></ion-icon> -->
+            <hr>
+            <div class="button">LOGIN</div>
+            <div class="small-text">DON'T HAVE AN ACCOUNT? <a href="signup.html" class="small-link">SIGN UP</a></div>
+        </div>
+        <div></div>
     </div>
+    <!-- Linked javascript file to main html file -->
+     <script src="/js/script.js"></script>
+    <script src="/js/background.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

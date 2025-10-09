@@ -1,0 +1,158 @@
+/* Styling for the body */
+body {
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Styling for the containers */
+.container {
+    display: grid;
+    grid-template-columns: 27.5% 45% 27.5%;
+    grid-template-rows: 100vh 100vh 100vh;
+}
+
+/* Styling for the container */
+.container-style {
+    background-color: #386641;
+    border: 0, 0, 0, 0;
+    border-left: 1.6vh solid #6A994E;
+    border-right: 1.6vh solid #6A994E;
+    color: white;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Title text styling */
+.title {
+    font-size: 6.4vh;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.small-text {
+    font-size: 1.6vh;
+    text-align: center;
+}
+
+/* Styling for a decorative line */
+hr {
+    border: 0.3vh solid #6A994E;
+    margin-top: 5vh;
+    width: 80%;
+}
+
+/* Styling for the navbar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #386641;
+    border-bottom: #6A994E solid 1vh;
+    padding-left: 10vh;
+    
+}
+
+/* Forces links to move to the left of the navbar */
+ul li {float: left;}
+
+/* Styling for the text on navbar */
+ul li a {
+    display: block;
+    color: white;
+    padding: 2vh;
+    text-decoration: none;
+    font-size: 2.4vh;
+    transition: 0.3s;
+}
+
+/* Text changes colour on navbar when hovered */
+ul li a:hover {color: #bbbbbb;}
+
+/* Input box for username and password */
+.input {
+    background-color: #252422;
+    border: 0.7vh solid #6A994E;
+    border-radius: 1vh;
+    font-weight: bold;
+    margin: 8vh auto;
+    font-size: 2.4vh;
+    color: white;
+    display: block;
+    padding: 2vh;
+    width: 70%;
+}
+
+/* Input box for registration page */
+.input-r {
+    background-color: #252422;
+    border: 0.7vh solid #6A994E;
+    border-radius: 1vh;
+    font-weight: bold;
+    margin: 4vh auto;
+    font-size: 2.4vh;
+    color: white;
+    display: block;
+    padding: 2vh;
+    width: 70%;
+}
+
+/* Styling for the login button */
+.button {
+    background-color: #6A994E;
+    border-radius: 15px;
+    color: white;
+    font-size: 2.4vh;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+    padding: 2vh;
+    margin: 8vh auto 3.2vh auto;
+    transition: 0.3s;
+}
+
+/* Login button changes colour when hovered */
+.button:hover {
+    background-color: #589765;
+    cursor: pointer;
+}
+
+/* Styling for the small link under login button*/
+.small-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styling for the text in the table */
+th {
+    width: 50%;
+    padding: 3vh;
+}
+
+/* Styling for the table */
+.scores {
+    width: 100%;
+    text-align: center;
+    font-size: 3.2vh;
+}
+
+.falling-card {
+    position: absolute;
+    width: 19.2vh;
+    height: 19.2vh;
+    opacity: 0.5;
+    animation: animate 10s linear forwards;
+    z-index: -1;
+} 
+@keyframes animate {
+    0% {
+        transform: translateY(-12.8vh) rotate(0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
