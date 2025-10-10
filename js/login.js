@@ -6,6 +6,10 @@ const person = {
 }
 
 const personStr = JSON.stringify(person)
+
+
+localStorage["fake@email.com"] = personStr;
+
 const personObj = JSON.parse(personStr)
 
 console.log(personStr)
