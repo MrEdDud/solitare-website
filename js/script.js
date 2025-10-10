@@ -25,9 +25,7 @@ function createFallingCard() {
     document.body.appendChild(card);
 
     // Arrow function to make sure the card is deleted after 10000ms
-    setTimeout(() => {
-        document.body.removeChild(card);
-    }, fallTime);
+    setTimeout(() => {document.body.removeChild(card)}, fallTime);
 }
 
 // Set interval to create falling cards every 500ms

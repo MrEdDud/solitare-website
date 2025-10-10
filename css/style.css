@@ -24,6 +24,7 @@ body {
     color: white;
 }
 
+/* The container for the game */
 .container-game {
     display: grid;
     margin: 4vh auto;
@@ -31,12 +32,12 @@ body {
     height: 85vh;
 }
 
+/* Styling for the container for the game */
 .container-game-style {
     background-color: #386641;
     border: 1.6vh solid #6A994E;
     color: white;
 }
-
 
 /* Title text styling */
 .title {
@@ -65,7 +66,6 @@ ul {
     background-color: #386641;
     border-bottom: #6A994E solid 1vh;
     padding-left: 10vh;
-    
 }
 
 /* Forces links to move to the left of the navbar */
