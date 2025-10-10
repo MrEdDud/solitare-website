@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking a font from google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Adding a title to the web page -->
     <title>Solitare</title>
 </head>
 <body>
+    <!-- Navbar with 4 links to different pages -->
     <ul>
         <li><a href="index.html">LOGIN</a></li>
+        <li><a href="signup.html">SIGNUP</a></li>
         <li><a href="#game" id="expand-container">GAME</a></li>
         <li><a href="leaderboards.html">LEADERBOARDS</a></li>
     </ul>
+    <!-- The container which holds all of the leaderboards details -->
     <div class="container">
         <div></div>
+        <!-- Styling for the container -->
         <div class="container-style">
             <div class="title">LEADERBOARDS</div><hr>
+            <!-- A table which holds the name and the time taken of players -->
             <table class="scores">
                 <tr>
                     <th>NAME</th>
@@ -35,9 +43,11 @@
                     <td>14:52</td>
                 </tr>
             </table><hr>
+            <!-- Button used to play the game again -->
             <div class="button">PLAY AGAIN</div>
         </div>
     </div>
-    <script src="/js/background.js"></script>
+    <!-- Linked javascript file to this html file -->
+    <script src="/js/script.js"></script>
 </body>
 </html>

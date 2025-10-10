@@ -5,6 +5,7 @@ body {
     overflow: hidden;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
+    max-height: 100vh;
 }
 
 /* Styling for the containers */
@@ -21,9 +22,21 @@ body {
     border-left: 1.6vh solid #6A994E;
     border-right: 1.6vh solid #6A994E;
     color: white;
-    max-width: 100%;
-    max-height: 100%;
 }
+
+.container-game {
+    display: grid;
+    margin: 4vh auto;
+    width: 90vw;
+    height: 85vh;
+}
+
+.container-game-style {
+    background-color: #386641;
+    border: 1.6vh solid #6A994E;
+    color: white;
+}
+
 
 /* Title text styling */
 .title {
@@ -138,6 +151,7 @@ th {
     font-size: 3.2vh;
 }
 
+/* Styling for the falling cards in the background */
 .falling-card {
     position: absolute;
     width: 19.2vh;
@@ -145,13 +159,15 @@ th {
     opacity: 0.5;
     animation: animate 10s linear forwards;
     z-index: -1;
-} 
+}
+
+/* Animations for the falling cards so that they move down and rotate and fade out when they reach the bottom */
 @keyframes animate {
-    0% {
+    from {
         transform: translateY(-12.8vh) rotate(0deg);
         opacity: 0.5;
     }
-    100% {
+    to {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
     }

@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking a font from google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Adding a title to the web page -->
     <title>Solitare</title>
 </head>
 <body>
+    <!-- Navbar with 4 links to different pages -->
     <ul>
         <li><a href="index.html">LOGIN</a></li>
-        <li><a id="expand-container">GAME</a></li>
+        <li><a href="signup.html">SIGNUP</a></li>
+        <li><a href="#game" id="expand-container">GAME</a></li>
         <li><a href="leaderboards.html">LEADERBOARDS</a></li>
     </ul>
+    <!-- The container which holds all of the login details -->
     <div class="container">
         <div></div>
-        <div class="container-style">   
+        <!-- Styling for the container -->
+        <div class="container-style">
+            <!-- Main content of the login page -->
             <div class="title">LOGIN</div><hr>
             <input type="text" placeholder="USERNAME" class="input">
-            <input type="password" placeholder="PASSWORD" class="input">
-            <!-- <ion-icon name="information-outline"></ion-icon> -->
-            <hr>
+            <input type="password" placeholder="PASSWORD" class="input"><hr>
             <div class="button">LOGIN</div>
             <div class="small-text">DON'T HAVE AN ACCOUNT? <a href="signup.html" class="small-link">SIGN UP</a></div>
         </div>
         <div></div>
     </div>
-    <!-- Linked javascript file to main html file -->
-     <script src="/js/script.js"></script>
-    <script src="/js/background.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Linked javascript file to this html file -->
+    <script src="js/login.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
