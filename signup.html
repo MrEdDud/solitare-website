@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Linking a font from google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet"> 
     <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Adding a title to the web page -->
@@ -15,7 +15,7 @@
     <ul>
         <li><a href="index.html">LOGIN</a></li>
         <li><a href="signup.html">SIGNUP</a></li>
-        <li><a href="#game" id="expand-container">GAME</a></li>
+        <li><a href="game.html">GAME</a></li>
         <li><a href="leaderboards.html">LEADERBOARDS</a></li>
     </ul>
     <!-- The container which holds all of the signup details -->
@@ -25,11 +25,13 @@
         <div class="container-style">
             <!-- Main content of the signup page -->
             <div class="title">SIGN UP</div><hr>
-            <input type="text" placeholder="USERNAME" class="input-r">
-            <input type="password" placeholder="PASSWORD" class="input-r">
-            <input type="phone" placeholder="PHONE" class="input-r"><hr> 
-            <!-- Add email -->
-            <div class="button">SIGN UP</div>
+            <!-- Inputs -->
+            <input type="text" placeholder="USERNAME" class="input-r" id="registerName">
+            <input type="password" placeholder="PASSWORD" class="input-r" id="registerPassword">
+            <input type="email" placeholder="EMAIL" class="input-r" id="registerEmail">
+            <input type="phone" placeholder="PHONE" class="input-r" id="registerPhone"><hr>
+            <!-- Buttons -->
+            <div class="button" onclick="registerUser()">SIGN UP</div>
             <div class="small-text">ALREADY HAVE AN ACCOUNT? <a href="index.html" class="small-link">LOG IN</a></div>
         </div>
         <div></div>

@@ -2,14 +2,34 @@
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 
-// Declaring image path constant
-const image = "../images/cards.png";
+const suits = ["hearts", "diamonds", "clubs", "spades"];
+const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
+
+const pack = [];
+
+function buildPack() {
+    for (let suit of suits){
+        for (let rank of ranks) {
+            pack.push({
+                suit: suit,
+                rank: rank,
+                img: `${rank}_of_${suit}.png`
+            })
+        }
+    }
+}
+
+buildPack();
 
 // Declaring fall time constant
 const fallTime = 10000;
 
 // Function to create a falling card effect
 function createFallingCard() {
+    // Declaring image path constant
+    const index = Math.floor(Math.random() * pack.length)
+    const image = `../images/cards/${pack[index].img}`;
+    
     // Declaring a constant to make the card into an element
     const card = document.createElement("img");
 
@@ -30,26 +50,3 @@ function createFallingCard() {
 
 // Set interval to create falling cards every 500ms
 setInterval(createFallingCard, 500);
-
-
-
-// Getting the button through it's ID and waiting for the user to click it
-const expandButton = document.getElementById("expand-container");
-expandButton.addEventListener("click", expandContainer);
-
-// Expand the container when the any of the "GAME" links are clicked
-function expandContainer() {
-    // Creating constants for both the container and its styling
-    const container = document.querySelector(".container");
-    const containerStyle = document.querySelector(".container-style");
-
-    // Removes all of the login content
-    containerStyle.innerHTML = ""
-
-    // Replacing the old old container + styling with the container + styling for the game
-    container.classList.replace("container", "container-game");
-    containerStyle.classList.replace("container-style", "container-game-style");
-
-    // Setting a timer before the page changes
-    setTimeout(() => {window.location.href = "game.html"}, 1000);
-};

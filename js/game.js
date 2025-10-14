@@ -1,44 +1,35 @@
+// 28 CARDS ON THE TABLE
+// REST IN THE DECK
+// ONLY KING CAN BE PLACED ON EMPTY SPOTS
+// CARDS CAN BE PLACED IN DESCENDING ORDER AND ALTERNATING COLORS
+
 // Timer variables
-let counter = 0;
+let seconds = 1;
 let timerElement = document.getElementById("timer");
 
 // Timer for the game
 function timer() {
-    counter++;
-    timerElement.innerHTML = counter;
+    timerElement.innerHTML = `00:${seconds}`;
+    seconds++;
 };
 
 
-
-const suits = ["hearts", "diamonds", "clubs", "spades"];
-const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
-
-const pack = [];
-
-function buildPack() {
-    for (let suit of suits){
-        for (let rank of ranks) {
-            pack.push({
-                suit: suit,
-                rank: rank,
-                img: `${rank}_of_${suit}.png` // Make sure the files are named like this
-            })
-        }
-    }
-}
 
 function deal(){
     const index = Math.floor(Math.random() * pack.length)
 
     const card = pack[index];
     const imgElement = document.querySelector("#CardHolder");
-    imgElement.src = "images/" + card.img; // Make sure you have the correct file location
+    imgElement.src = "images/cards/" + card.img;
 
     pack.splice(index,1);
     console.log(pack.length)
 }
 
+
+
 window.onload = ()=> {
+    setInterval(timer, 1000);
     buildPack();
     deal();
 }

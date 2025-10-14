@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Linking a font from google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">  
     <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Adding a title to the web page -->
@@ -15,7 +15,7 @@
     <ul>
         <li><a href="index.html">LOGIN</a></li>
         <li><a href="signup.html">SIGNUP</a></li>
-        <li><a href="#game" id="expand-container">GAME</a></li>
+        <li><a href="game.html">GAME</a></li>
         <li><a href="leaderboards.html">LEADERBOARDS</a></li>
     </ul>
     <!-- The container which holds all of the login details -->
@@ -25,9 +25,11 @@
         <div class="container-style">
             <!-- Main content of the login page -->
             <div class="title">LOGIN</div><hr>
-            <input type="text" placeholder="USERNAME" class="input">
-            <input type="password" placeholder="PASSWORD" class="input"><hr>
-            <div class="button">LOGIN</div>
+            <!-- Inputs -->
+            <input type="text" placeholder="USERNAME" class="input" id="loginName">
+            <input type="password" placeholder="PASSWORD" class="input" id="loginPassword"><hr>
+            <!-- Buttons -->
+            <div class="button" onclick="loginUser()">LOGIN</div>
             <div class="small-text">DON'T HAVE AN ACCOUNT? <a href="signup.html" class="small-link">SIGN UP</a></div>
         </div>
         <div></div>
