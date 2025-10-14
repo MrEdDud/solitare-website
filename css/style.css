@@ -1,10 +1,11 @@
-/* Styling for the body */
+/* Styling for everything in the body tags */
 body {
     padding: 0%;
     margin: 0%;
     overflow: hidden;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Tiny5", sans-serif;
+    background-image: linear-gradient(to bottom, white, #ccc5b9); 
     max-height: 100vh;
 }
 
@@ -39,6 +40,13 @@ body {
     color: white;
 }
 
+.container-game-table {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    color: white;
+    margin: 4vh auto;
+}
+
 /* Title text styling */
 .title {
     font-size: 6.4vh;
@@ -54,7 +62,7 @@ body {
 /* Styling for a decorative line */
 hr {
     border: 0.3vh solid #6A994E;
-    margin-top: 5vh;
+    margin-top: 2vh;
     width: 80%;
 }
 
@@ -88,6 +96,7 @@ ul li a:hover {color: #bbbbbb;}
 .input {
     background-color: #252422;
     border: 0.7vh solid #6A994E;
+    font-family: inherit;
     border-radius: 1vh;
     font-weight: bold;
     margin: 8vh auto;
@@ -102,9 +111,10 @@ ul li a:hover {color: #bbbbbb;}
 .input-r {
     background-color: #252422;
     border: 0.7vh solid #6A994E;
+    font-family: inherit;
     border-radius: 1vh;
     font-weight: bold;
-    margin: 4vh auto;
+    margin: 2vh auto;
     font-size: 2.4vh;
     color: white;
     display: block;
@@ -151,13 +161,29 @@ th {
     font-size: 3.2vh;
 }
 
+/* Styling for the timer in the game */
+.timer-text {
+    font-size: 2.4vh;
+    float: right;
+    margin-top: 2vh;
+    padding-right: 10vw;
+    padding-bottom: 1.5vh;
+}
+
+/* Styling for the title in the game */
+.solitare-text {
+    font-size: 2.4vh;
+    float: left;
+    margin-top: 2vh;
+    padding-left: 10vw;
+    padding-bottom: 1.5vh;
+}
+
 /* Styling for the falling cards in the background */
 .falling-card {
     position: absolute;
-    width: 19.2vh;
-    height: 19.2vh;
-    opacity: 0.5;
-    animation: animate 10s linear forwards;
+    scale: 2;
+    animation: animate 15s linear forwards;
     z-index: -1;
 }
 
@@ -165,7 +191,7 @@ th {
 @keyframes animate {
     from {
         transform: translateY(-12.8vh) rotate(0deg);
-        opacity: 0.5;
+        opacity: 0.75;
     }
     to {
         transform: translateY(100vh) rotate(360deg);

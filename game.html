@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <title>Solitare</title>
 </head>
@@ -16,7 +16,12 @@
     </ul>
     <div class="container-game">
         <div class="container-game-style">
-            
+            <div class="solitare-text">SOLITARE</div>
+            <div id="timer" class="timer-text">00:00</div><hr>
+            <div class="container-game-table">
+                <img src="images/cards/back_of_black.png" onclick="deal()"></img>
+                <img id="CardHolder" src="images/cards/back_of_black.png" alt="Card">
+            </div>
         </div>
     </div>
     <!-- Linked javascript file to main html file -->
