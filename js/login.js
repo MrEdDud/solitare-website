@@ -29,7 +29,9 @@ function registerUser(){
     
     // Checking if the name is valid
     if(register_name.length >= 3 && register_name.length <= 20) {
-        nameCheck = true;
+        if (localStorage[registerData.name] === register_name){ // FIX NAME CHECK
+            nameCheck = true;
+        }
     } else {
         console.log("Invalid name");
         // popup
