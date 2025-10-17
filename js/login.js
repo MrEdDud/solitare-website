@@ -4,8 +4,9 @@ const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9
 const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
 const phoneRegex = new RegExp("^07\\d{8,9}$");
 
+// ADD SCORE
 // Function to register a new user
-function registerUser(){
+function registerUser(){ 
     // Variables to check if the inputs are valid
     let nameCheck = false;
     let passwordCheck = false;
@@ -13,10 +14,10 @@ function registerUser(){
     let phoneCheck = false;
 
     // Get the values from the inputs
-    let register_name = document.getElementById("registerName").value;
-    let register_password = document.getElementById("registerPassword").value;
-    let register_email = document.getElementById("registerEmail").value;
-    let register_phone = document.getElementById("registerPhone").value;
+    const register_name = document.getElementById("registerName").value;
+    const register_password = document.getElementById("registerPassword").value;
+    const register_email = document.getElementById("registerEmail").value;
+    const register_phone = document.getElementById("registerPhone").value;
 
     // An object to hold the registration data
     const registerData = {
@@ -41,23 +42,24 @@ function registerUser(){
     } else if(mediumRegex.test(register_password)) {
         document.getElementById("registerPassword").style.backgroundColor = "#fdb833";
     } else {
-        document.getElementById("registerPassword").style.backgroundColor = "#9d0208";
+        document.getElementById("registerPassword").style.backgroundColor = "#c1121f";
+        document.getElementById("errorMessage"),innerHTML = "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*).";
     };
 
     // Checking if the email is valid
     if(emailRegex.test(register_email)) {
         emailCheck = true;
+        document.getElementById("errorMessage").innerHTML = "";
     } else {
-        console.log("Invalid email");
-        // popup
+        document.getElementById("errorMessage").innerHTML = "Invalid email!";
     }
 
     // Checking if the phone number is valid
     if(phoneRegex.test(register_phone)) {
         phoneCheck = true;
+        document.getElementById("errorMessage").innerHTML = "";
     } else {
-        console.log("Invalid phone number");
-        // popup
+        document.getElementById("errorMessage").innerHTML = "Invalid phone number!";
     }
 
     // Checking if all inputs are valid
@@ -65,8 +67,7 @@ function registerUser(){
         // Converting the users data into JSON and storing it in local storage
         const registerDataStr = JSON.stringify(registerData);
         localStorage[registerData.name] = registerDataStr;
-
-        console.log("All inputs are valid");
+        // Changes window after 1 second
         setTimeout(() => {window.location.href = "game.html"}, 1000);
     }
 }
@@ -74,17 +75,18 @@ function registerUser(){
 // Function to log the user in
 function loginUser(){
     // Get the values from the inputs
-    let login_name = document.getElementById("loginName").value;
-    let login_password = document.getElementById("loginPassword").value;
+    const login_name = document.getElementById("loginName").value;
+    const login_password = document.getElementById("loginPassword").value;
 
     if(localStorage[login_name] === undefined) {
         console.log("User not found");
         // popup
     } else {
-        let userObj = JSON.parse(localStorage[login_name]);
+        const userObj = JSON.parse(localStorage[login_name]);
 
         if (login_password === userObj.password) {
             console.log("Login successful");
+            sessionStorage.loggedInUser = login_name;
             // popup
             setTimeout(() => {window.location.href = "game.html"}, 1000);
         } else {

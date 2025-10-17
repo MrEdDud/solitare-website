@@ -59,6 +59,28 @@ body {
     text-align: center;
 }
 
+.error-text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0vh);
+    background-color: #c1121f;
+    border: 0.7vh solid #c1121f;
+    border-radius: 1vh;
+    color: white;
+    font-size: 3.2vh;
+    text-align: center;
+    animation: animateError 3s linear forwards;
+}
+
+@keyframes animateError {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 /* Styling for a decorative line */
 hr {
     border: 0.3vh solid #6A994E;
