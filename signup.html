@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Linking a font from google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">  
     <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Getting rid of an annoying error -->
+    <link rel="icon" href="data:,">
     <!-- Adding a title to the web page -->
-    <title>Solitare</title>
+    <title>Sign up</title>
 </head>
 <body>
     <!-- Navbar with 4 links to different pages -->
@@ -25,20 +27,26 @@
         <div class="container-style">
             <!-- Main content of the signup page -->
             <div class="title">SIGN UP</div><hr>
-            <!-- Inputs -->
+            <!-- Inputs with error messages -->
             <input type="text" placeholder="USERNAME" class="input-r" id="registerName">
+            <p id="errorName" class="error-text hidden"></p>
+
             <input type="password" placeholder="PASSWORD" class="input-r" id="registerPassword">
+            <p id="errorPassword" class="error-text hidden"></p>
+
             <input type="email" placeholder="EMAIL" class="input-r" id="registerEmail">
-            <input type="phone" placeholder="PHONE" class="input-r" id="registerPhone"><hr>
+            <p id="errorEmail" class="error-text hidden"></p>
+
+            <input type="phone" placeholder="PHONE" class="input-r" id="registerPhone">
+            <p id="errorPhone" class="error-text hidden"></p><hr>
             <!-- Buttons -->
-             <div class="error-text" id="errorMessage"></div> <!-- Fix the error text -->
             <div class="button" onclick="registerUser()">SIGN UP</div>
             <div class="small-text">ALREADY HAVE AN ACCOUNT? <a href="index.html" class="small-link">LOG IN</a></div>
         </div>
         <div></div>
     </div>
     <!-- Linked javascript file to this html file -->
-    <script src="js/login.js"></script>
-    <script src="/js/script.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="/js/script.js"></script>
 </body>
 </html>

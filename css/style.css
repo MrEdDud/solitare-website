@@ -6,7 +6,7 @@ body {
     font-weight: bold;
     font-family: "Tiny5", sans-serif;
     background-image: linear-gradient(to bottom, white, #ccc5b9); 
-    max-height: 100vh;
+    height: 100vh;
 }
 
 /* Styling for the containers */
@@ -25,28 +25,6 @@ body {
     color: white;
 }
 
-/* The container for the game */
-.container-game {
-    display: grid;
-    margin: 4vh auto;
-    width: 90vw;
-    height: 85vh;
-}
-
-/* Styling for the container for the game */
-.container-game-style {
-    background-color: #386641;
-    border: 1.6vh solid #6A994E;
-    color: white;
-}
-
-.container-game-table {
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    color: white;
-    margin: 4vh auto;
-}
-
 /* Title text styling */
 .title {
     font-size: 6.4vh;
@@ -54,32 +32,33 @@ body {
     padding-top: 10vh;
 }
 
+/* Small text styling */
 .small-text {
     font-size: 1.6vh;
     text-align: center;
 }
 
+/* Styling for the error message */
 .error-text {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0vh);
-    background-color: #c1121f;
     border: 0.7vh solid #c1121f;
+    background-color: #c1121f;
+    max-width: 30%;
+    transform: translateX(17.5vw);
+    position: absolute;
     border-radius: 1vh;
-    color: white;
-    font-size: 3.2vh;
     text-align: center;
-    animation: animateError 3s linear forwards;
+    font-size: 3.2vh;
+    color: white;
+    left: 50%;
 }
 
-@keyframes animateError {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
+/* Positions for each error message */
+#errorName {top:27.5vh;}
+#errorPassword {top:33.75vh;}
+#errorEmail {top:47.5vh;}
+#errorPhone {top:55.5vh;}
+#errorLoginName {top:33.5vh;}
+#errorLoginPassword {top:49.5vh;}
 
 /* Styling for a decorative line */
 hr {
@@ -113,6 +92,9 @@ ul li a {
 
 /* Text changes colour on navbar when hovered */
 ul li a:hover {color: #bbbbbb;}
+
+/* Hides elements */
+.hidden {display: none;}
 
 /* Input box for username and password */
 .input {
@@ -187,8 +169,8 @@ th {
 .timer-text {
     font-size: 2.4vh;
     float: right;
-    margin-top: 2vh;
-    padding-right: 10vw;
+    margin-top: 8vh;
+    padding-right: 16vw;
     padding-bottom: 1.5vh;
 }
 
@@ -196,8 +178,8 @@ th {
 .solitare-text {
     font-size: 2.4vh;
     float: left;
-    margin-top: 2vh;
-    padding-left: 10vw;
+    margin-top: 8vh;
+    padding-left: 16vw;
     padding-bottom: 1.5vh;
 }
 
@@ -207,6 +189,7 @@ th {
     scale: 2;
     animation: animate 15s linear forwards;
     z-index: -1;
+    filter: blur(2px);
 }
 
 /* Animations for the falling cards so that they move down and rotate and fade out when they reach the bottom */
@@ -219,4 +202,16 @@ th {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
     }
+}
+
+/* Styling for the game canvas */
+#game {
+    max-width: 100%; 
+    max-height: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #386641;
+    border: #6A994E solid 1vh;
 }
