@@ -7,8 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">  
     <!-- Linking my stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Getting rid of an annoying error -->
+    <link rel="icon" href="data:,">
     <!-- Adding a title to the web page -->
-    <title>Solitare</title>
+    <title>Login</title>
 </head>
 <body>
     <!-- Navbar with 4 links to different pages -->
@@ -25,9 +27,12 @@
         <div class="container-style">
             <!-- Main content of the login page -->
             <div class="title">LOGIN</div><hr>
-            <!-- Inputs -->
+            <!-- Inputs with error messages -->
             <input type="text" placeholder="USERNAME" class="input" id="loginName">
-            <input type="password" placeholder="PASSWORD" class="input" id="loginPassword"><hr>
+            <p id="errorLoginName" class="error-text hidden"></p>
+            
+            <input type="password" placeholder="PASSWORD" class="input" id="loginPassword">
+            <p id="errorLoginPassword" class="error-text hidden"></p><hr>
             <!-- Buttons -->
             <div class="button" onclick="loginUser()">LOGIN</div>
             <div class="small-text">DON'T HAVE AN ACCOUNT? <a href="signup.html" class="small-link">SIGN UP</a></div>
@@ -35,7 +40,7 @@
         <div></div>
     </div>
     <!-- Linked javascript file to this html file -->
-    <script src="js/login.js"></script>
-    <script src="/js/script.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="/js/script.js"></script>
 </body>
 </html>

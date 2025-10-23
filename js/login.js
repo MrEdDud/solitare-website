@@ -1,6 +1,5 @@
 // Regex patterns for password, email, and phone validation
 const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
 const phoneRegex = new RegExp("^07\\d{8,9}$");
 
@@ -18,6 +17,7 @@ function registerUser(){
     const register_password = document.getElementById("registerPassword").value;
     const register_email = document.getElementById("registerEmail").value;
     const register_phone = document.getElementById("registerPhone").value;
+    const user_score = 0;
 
     // An object to hold the registration data
     const registerData = {
@@ -25,43 +25,44 @@ function registerUser(){
         password: register_password,
         email: register_email,
         phone: register_phone,
+        score: user_score,
     }
     
     // Checking if the name is valid
     if(register_name.length >= 3 && register_name.length <= 20) {
-        if (localStorage[registerData.name] === register_name){ // FIX NAME CHECK
+        if (localStorage.getItem(register_name) !== null){ 
+            showError("errorName", "Name already taken!");
+        }
+        else {
             nameCheck = true;
+            hideError("errorName");
         }
     } else {
-        console.log("Invalid name");
-        // popup
+        showError("errorName", "Name must be 3-20 characters long");
     }
 
     // Checking if the password is valid
     if(strongRegex.test(register_password)) {
-        document.getElementById("registerPassword").style.backgroundColor = "#588157";
         passwordCheck = true;
-    } else if(mediumRegex.test(register_password)) {
-        document.getElementById("registerPassword").style.backgroundColor = "#fdb833";
+        hideError("errorPassword");
     } else {
-        document.getElementById("registerPassword").style.backgroundColor = "#c1121f";
-        document.getElementById("errorMessage"),innerHTML = "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*).";
+        showError("errorPassword", "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
     };
 
     // Checking if the email is valid
     if(emailRegex.test(register_email)) {
         emailCheck = true;
-        document.getElementById("errorMessage").innerHTML = "";
+        hideError("errorEmail");
     } else {
-        document.getElementById("errorMessage").innerHTML = "Invalid email!";
+        showError("errorEmail", "Invalid email address!");
     }
 
     // Checking if the phone number is valid
     if(phoneRegex.test(register_phone)) {
         phoneCheck = true;
-        document.getElementById("errorMessage").innerHTML = "";
+        hideError("errorPhone");
     } else {
-        document.getElementById("errorMessage").innerHTML = "Invalid phone number!";
+        showError("errorPhone", "Invalid phone number! It should start with 07 and be 10-11 digits long.");
     }
 
     // Checking if all inputs are valid
@@ -70,8 +71,20 @@ function registerUser(){
         const registerDataStr = JSON.stringify(registerData);
         localStorage[registerData.name] = registerDataStr;
         // Changes window after 1 second
-        setTimeout(() => {window.location.href = "game.html"}, 1000);
+        setTimeout(() => {window.location.href = "index.html"}, 1000);
     }
+}
+
+// Helper functions to show and hide error messages
+function showError(id, message) {
+    const elementID = document.getElementById(id);
+    elementID.innerHTML = message;
+    elementID.classList.remove("hidden");
+}
+function hideError(id) {
+    const elementID = document.getElementById(id);
+    elementID.innerHTML = "";
+    elementID.classList.add("hidden");
 }
 
 // Function to log the user in
@@ -82,18 +95,19 @@ function loginUser(){
 
     if(localStorage[login_name] === undefined) {
         console.log("User not found");
-        // popup
+        showError("errorLoginName", "User not found!");
     } else {
+        hideError("errorLoginName");
         const userObj = JSON.parse(localStorage[login_name]);
+        
+        console.log(userObj.password); // For testing
 
         if (login_password === userObj.password) {
-            console.log("Login successful");
+            hideError("errorLoginPassword");
             sessionStorage.loggedInUser = login_name;
-            // popup
             setTimeout(() => {window.location.href = "game.html"}, 1000);
         } else {
-            console.log("Incorrect password");
-            // popup
+            showError("errorLoginPassword", "Incorrect password!");
         }
     }
 }
