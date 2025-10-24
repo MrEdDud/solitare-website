@@ -100,11 +100,9 @@ function loginUser(){
         hideError("errorLoginName");
         const userObj = JSON.parse(localStorage[login_name]);
         
-        console.log(userObj.password); // For testing
-
         if (login_password === userObj.password) {
             hideError("errorLoginPassword");
-            sessionStorage.loggedInUser = login_name;
+            sessionStorage.setItem("loggedInUser", login_name);
             setTimeout(() => {window.location.href = "game.html"}, 1000);
         } else {
             showError("errorLoginPassword", "Incorrect password!");

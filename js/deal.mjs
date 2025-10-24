@@ -11,11 +11,14 @@ export class Deal {
     // Setting up the players cards
     constructor() {
         this.pCards = playersCards;
+        this.bCards = boardsCards;
         this.nextCard = null;
         this.context = document.getElementById("game").getContext("2d");
 
         this.wastedCards = [];
         this.nextCard = [];
+
+        this.tableCards = [[], [], [], [], [], [], []];
     }
 
     // Dealing the next card to the player
@@ -27,12 +30,12 @@ export class Deal {
             this.wastedCards.push(this.nextCard);
 
             // Drawing the next card on the canvas
-            this.drawX = 25;
-            this.drawY = 125;
-            this.img = new Image();
-            this.img.src = `images/cards/${this.nextCard.img}`;
-            this.img.onload = () => {
-                this.context.drawImage(this.img, this.drawX, this.drawY, this.img.width, this.img.height);
+            const drawX = 25;
+            const drawY = 125;
+            let img = new Image();
+            img.src = `images/cards/${this.nextCard.img}`;
+            img.onload = () => {
+                this.context.drawImage(img, drawX, drawY, img.width, img.height);
             };
         } else {
             // If there are no cards left, reset the players deck with the wasted cards
@@ -41,7 +44,27 @@ export class Deal {
         }
     }
 
+    // Dealing the tables cards
     dealTableCards() {
-        // To be implemented: dealing cards to the table
+        let index = 0;
+        let drawX = 125;
+        let drawY = 125;
+        let img = new Image();
+
+        for (let col = 0; col < 7; col++) {
+            for (let row = 0; row <= col; row++) {
+                if (index < this.bCards.length) {
+                    this.tableCards[col].push(this.bCards[index]);
+                    img.src = `images/cards/${this.tableCards[col][row]}`;
+                    console.log(img.src);
+                    img.onload = () => {
+                        this.context.drawImage(img, drawX, drawY, img.width, img.height);
+                    }
+                    index++;
+                }
+            }
+        }
+
+        console.log(this.tableCards)
     }
 }

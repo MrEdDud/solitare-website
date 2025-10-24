@@ -33,6 +33,8 @@ export class Card {
             this.tableCards.push(this.card);
             this.pack.splice(this.index,1);
         }
+        // Returning the tables cards
+        return this.tableCards;
     }
 
     playerCards() {

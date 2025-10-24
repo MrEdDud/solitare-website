@@ -168,16 +168,16 @@ th {
 /* Styling for the timer in the game */
 .timer-text {
     font-size: 2.4vh;
-    float: right;
     margin-top: 8vh;
     padding-right: 16vw;
     padding-bottom: 1.5vh;
+    float: right;
 }
 
 /* Styling for the title in the game */
 .solitare-text {
     font-size: 2.4vh;
-    float: left;
+    display: inline-block;
     margin-top: 8vh;
     padding-left: 16vw;
     padding-bottom: 1.5vh;
