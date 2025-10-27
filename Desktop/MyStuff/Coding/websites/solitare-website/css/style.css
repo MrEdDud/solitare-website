@@ -1,0 +1,216 @@
+/* Styling for everything in the body tags */
+body {
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: "Tiny5", sans-serif;
+    background-image: linear-gradient(to bottom, white, #ccc5b9); 
+    height: 100vh;
+}
+
+/* Styling for the containers */
+.container {
+    display: grid;
+    grid-template-columns: 27.5% 45% 27.5%;
+    grid-template-rows: 100vh 100vh 100vh;
+}
+
+/* Styling for the container */
+.container-style {
+    background-color: #386641;
+    border: 0, 0, 0, 0;
+    border-left: 1.6vh solid #6A994E;
+    border-right: 1.6vh solid #6A994E;
+    color: white;
+}
+
+/* Title text styling */
+.title {
+    font-size: 6.4vh;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+/* Small text styling */
+.small-text {
+    font-size: 1.6vh;
+    text-align: center;
+}
+
+/* Styling for the error message */
+.error-text {
+    border: 0.7vh solid #c1121f;
+    background-color: #c1121f;
+    max-width: 30%;
+    transform: translateX(17.5vw);
+    position: absolute;
+    border-radius: 1vh;
+    text-align: center;
+    font-size: 3.2vh;
+    color: white;
+    left: 50%;
+}
+
+/* Positions for each error message */
+#errorName {top:27.5vh;}
+#errorPassword {top:33.75vh;}
+#errorEmail {top:47.5vh;}
+#errorPhone {top:55.5vh;}
+#errorLoginName {top:33.5vh;}
+#errorLoginPassword {top:49.5vh;}
+
+/* Styling for a decorative line */
+hr {
+    border: 0.3vh solid #6A994E;
+    margin-top: 2vh;
+    width: 80%;
+}
+
+/* Styling for the navbar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #386641;
+    border-bottom: #6A994E solid 1vh;
+    padding-left: 10vh;
+}
+
+/* Forces links to move to the left of the navbar */
+ul li {float: left;}
+
+/* Styling for the text on navbar */
+ul li a {
+    display: block;
+    color: white;
+    padding: 2vh;
+    text-decoration: none;
+    font-size: 2.4vh;
+    transition: 0.3s;
+}
+
+/* Text changes colour on navbar when hovered */
+ul li a:hover {color: #bbbbbb;}
+
+/* Hides elements */
+.hidden {display: none;}
+
+/* Input box for username and password */
+.input {
+    background-color: #252422;
+    border: 0.7vh solid #6A994E;
+    font-family: inherit;
+    border-radius: 1vh;
+    font-weight: bold;
+    margin: 8vh auto;
+    font-size: 2.4vh;
+    color: white;
+    display: block;
+    padding: 2vh;
+    width: 70%;
+}
+
+/* Input box for registration page */
+.input-r {
+    background-color: #252422;
+    border: 0.7vh solid #6A994E;
+    font-family: inherit;
+    border-radius: 1vh;
+    font-weight: bold;
+    margin: 2vh auto;
+    font-size: 2.4vh;
+    color: white;
+    display: block;
+    padding: 2vh;
+    width: 70%;
+}
+
+/* Styling for the login button */
+.button {
+    background-color: #6A994E;
+    border-radius: 15px;
+    color: white;
+    font-size: 2.4vh;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+    padding: 2vh;
+    margin: 8vh auto 3.2vh auto;
+    transition: 0.3s;
+}
+
+/* Login button changes colour when hovered */
+.button:hover {
+    background-color: #589765;
+    cursor: pointer;
+}
+
+/* Styling for the small link under login button*/
+.small-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styling for the text in the table */
+th {
+    width: 50%;
+    padding: 3vh;
+}
+
+/* Styling for the table */
+.scores {
+    width: 100%;
+    text-align: center;
+    font-size: 3.2vh;
+}
+
+/* Styling for the timer in the game */
+.timer-text {
+    font-size: 2.4vh;
+    margin-top: 8vh;
+    padding-right: 16vw;
+    padding-bottom: 1.5vh;
+    float: right;
+}
+
+/* Styling for the title in the game */
+.solitare-text {
+    font-size: 2.4vh;
+    display: inline-block;
+    margin-top: 8vh;
+    padding-left: 16vw;
+    padding-bottom: 1.5vh;
+}
+
+/* Styling for the falling cards in the background */
+.falling-card {
+    position: absolute;
+    scale: 2;
+    animation: animate 15s linear forwards;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+/* Animations for the falling cards so that they move down and rotate and fade out when they reach the bottom */
+@keyframes animate {
+    from {
+        transform: translateY(-12.8vh) rotate(0deg);
+        opacity: 0.75;
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Styling for the game canvas */
+#game {
+    max-width: 100%; 
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #386641;
+    border: #6A994E solid 1vh;
+}
