@@ -17,7 +17,6 @@ function registerUser(){
     const register_password = document.getElementById("registerPassword").value;
     const register_email = document.getElementById("registerEmail").value;
     const register_phone = document.getElementById("registerPhone").value;
-    const user_score = 0;
 
     // An object to hold the registration data
     const registerData = {
@@ -25,7 +24,6 @@ function registerUser(){
         password: register_password,
         email: register_email,
         phone: register_phone,
-        score: user_score,
     }
     
     // Checking if the name is valid
@@ -94,7 +92,6 @@ function loginUser(){
     const login_password = document.getElementById("loginPassword").value;
 
     if(localStorage[login_name] === undefined) {
-        console.log("User not found");
         showError("errorLoginName", "User not found!");
     } else {
         hideError("errorLoginName");

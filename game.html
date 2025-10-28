@@ -11,7 +11,7 @@
     <link rel="icon" href="data:,">
     <!-- Adding a title to the web page -->
     <title>Solitare</title>
-</head>
+    <link rel="icon" type="image/x-icon" href="/images/cards/13_of_hearts.png"></head>
 <body>
     <ul>
         <li><a href="index.html">LOGIN</a></li>
@@ -24,6 +24,8 @@
         <label id="minutes">00</label>:<label id="seconds">00</label>
     </div>
     <canvas id="game"></canvas>
+    <div class="game-button reset-button" onclick="window.location.href = 'game.html'">RESET</div>
+    <div class="game-button play-button" onclick="startGame()">PLAY</div>
     <!-- Linked javascript file to main html file -->
     <script type="module" src="/js/game.mjs"></script>
     <script type="module" src="/js/script.js"></script>

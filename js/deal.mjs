@@ -11,7 +11,8 @@ let playersCards = cards.playerCards();
 
 export class Deal {
     // Setting up the players cards
-    constructor() {
+    constructor(move) {
+        this.move = move;
         this.pCards = playersCards;
         this.bCards = boardsCards;
         this.nextCard = null;
@@ -23,27 +24,55 @@ export class Deal {
         this.tableCards = [[], [], [], [], [], [], []];
     }
 
+    // Drawing the base card
+    drawBaseCard() {
+        this.playerCardImg = new Image();
+        this.playerCardImg.src = "images/cards/back_of_black.png";
+
+        this.playerCardImg.onload = () => {
+            this.cardWidth = this.playerCardImg.width;
+            this.cardHeight = this.playerCardImg.height;
+
+            this.context.drawImage(this.playerCardImg, 25, 25, this.cardWidth, this.cardHeight);
+        };
+    }
+
     // Dealing the next card to the player
     dealNextCard() {
+        if (this.nextCard && !this.nextCard.hasBeenPlayed) {
+            this.wastedCards.push(this.nextCard);
+            this.drawNextCard();
+        }
+        
         // Checking if there are cards left in the players deck
         if (this.pCards.length > 0) {
             // Getting the next card from the players deck and putting it in the wasted cards array
             this.nextCard = this.pCards.pop();
-            this.wastedCards.push(this.nextCard);
 
-            // Drawing the next card on the canvas
-            const drawX = 25;
-            const drawY = 125;
-            let img = new Image();
-            img.src = `images/cards/${this.nextCard.img}`;
-            img.onload = () => {
-                this.context.drawImage(img, drawX, drawY, img.width, img.height);
-            };
+            this.nextCard.isPlayerCard = true;
+            this.nextCard.faceUp = true;
+            this.nextCard.hasBeenPlayed = false;
+            
+            this.drawNextCard();
         } else {
             // If there are no cards left, reset the players deck with the wasted cards
             this.pCards = this.wastedCards.reverse();
             this.wastedCards = [];
+            this.dealNextCard();
         }
+    }
+
+    drawNextCard() {
+        // Drawing the next card on the canvas
+        const drawX = 25;
+        const drawY = 125;
+        let img = new Image();
+        img.src = `images/cards/${this.nextCard.img}`;
+        img.onload = () => {
+            this.context.drawImage(img, drawX, drawY, img.width, img.height);
+        };
+
+        this.context.shadowColor = "transparent";
     }
 
     seperateTableCards() {
@@ -92,5 +121,17 @@ export class Deal {
                 };
             }
         }
+    }
+
+    redraw() {
+        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+        
+        this.drawNextCard();
+        this.drawTableCards();
+        this.drawBaseCard();
+        this.move.drawStoredCards();
+
+        console.log("Tables cards:", this.tableCards);
+        console.log("Players cards:", this.pCards);
     }
 }

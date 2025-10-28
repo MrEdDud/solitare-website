@@ -2,7 +2,7 @@ export class Card {
     // Setting up the suits, ranks, and pack array
     constructor() {
         this.suit = ["hearts", "diamonds", "clubs", "spades"];
-        this.rank = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
+        this.rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         this.pack = [];
     }
     

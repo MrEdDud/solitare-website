@@ -146,6 +146,36 @@ ul li a:hover {color: #bbbbbb;}
     cursor: pointer;
 }
 
+/* Styling for the login button */
+.game-button {
+    background-color: #6A994E;
+    border-radius: 15px;
+    color: white;
+    font-size: 2.4vh;
+    text-align: center;
+    text-decoration: none;
+    width: 15%;
+    padding: 2vh;
+    margin: 4vh auto 3.2vh auto;
+    transition: 0.3s;
+    margin-right: 16vw;
+    margin-left: 16vw;
+}
+
+.reset-button {
+    float:right;
+}
+
+.play-button {
+    float: left;
+}
+
+/* Login button changes colour when hovered */
+.game-button:hover {
+    background-color: #589765;
+    cursor: pointer;
+}
+
 /* Styling for the small link under login button*/
 .small-link {
     color: white;
@@ -156,6 +186,10 @@ ul li a:hover {color: #bbbbbb;}
 th {
     width: 50%;
     padding: 3vh;
+}
+
+tr {
+    height: 6.4vh;
 }
 
 /* Styling for the table */
