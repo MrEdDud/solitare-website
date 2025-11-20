@@ -3,7 +3,6 @@ const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^
 const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
 const phoneRegex = new RegExp("^07\\d{8,9}$");
 
-// ADD SCORE
 // Function to register a new user
 function registerUser(){ 
     // Variables to check if the inputs are valid
@@ -26,7 +25,7 @@ function registerUser(){
         phone: register_phone,
     }
     
-    // Checking if the name is valid
+    // Checking if the name is valid by seeing if its between 3-20 characters long and seeing if its already in local storage
     if(register_name.length >= 3 && register_name.length <= 20) {
         if (localStorage.getItem(register_name) !== null){ 
             showError("errorName", "Name already taken!");
@@ -39,7 +38,7 @@ function registerUser(){
         showError("errorName", "Name must be 3-20 characters long");
     }
 
-    // Checking if the password is valid
+    // Checking if the password is valid with the regex above
     if(strongRegex.test(register_password)) {
         passwordCheck = true;
         hideError("errorPassword");
@@ -47,7 +46,7 @@ function registerUser(){
         showError("errorPassword", "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
     };
 
-    // Checking if the email is valid
+    // Checking if the email is valid with the regex above
     if(emailRegex.test(register_email)) {
         emailCheck = true;
         hideError("errorEmail");
@@ -55,7 +54,7 @@ function registerUser(){
         showError("errorEmail", "Invalid email address!");
     }
 
-    // Checking if the phone number is valid
+    // Checking if the phone number is valid with the regex above
     if(phoneRegex.test(register_phone)) {
         phoneCheck = true;
         hideError("errorPhone");
@@ -91,14 +90,18 @@ function loginUser(){
     const login_name = document.getElementById("loginName").value;
     const login_password = document.getElementById("loginPassword").value;
 
+    // Checking if the user has typed a username that exists
     if(localStorage[login_name] === undefined) {
         showError("errorLoginName", "User not found!");
     } else {
         hideError("errorLoginName");
+        // Getting the users details and storing it in userObj
         const userObj = JSON.parse(localStorage[login_name]);
         
+        // Checking if the user typed the correct password
         if (login_password === userObj.password) {
             hideError("errorLoginPassword");
+            // Setting the current logged in user in session storage then sending the player to the game
             sessionStorage.setItem("loggedInUser", login_name);
             setTimeout(() => {window.location.href = "game.html"}, 1000);
         } else {

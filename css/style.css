@@ -162,10 +162,12 @@ ul li a:hover {color: #bbbbbb;}
     margin-left: 16vw;
 }
 
+/* Styling for the reset button on the game page */
 .reset-button {
     float:right;
 }
 
+/* Styling for the play button on the game page */
 .play-button {
     float: left;
 }
@@ -188,6 +190,7 @@ th {
     padding: 3vh;
 }
 
+/* Styling for the tr tags inside the leaderboards html */
 tr {
     height: 6.4vh;
 }

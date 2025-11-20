@@ -1,15 +1,17 @@
-// Importing the class
+// Importing the classes
 import {Deal} from './deal.mjs';
 import {Move} from './move.mjs';
 
+// Creating instances of the classes
 const deal = new Deal();
-const move = new Move(deal);
+const move = new Move(deal); // Passing deal into the move class so they both have the same cards
 
+// Passing move into the deal class so they both have the same data
 deal.move = move;
 
 class Game {
-    // Setting up the canvas and timer elements
     constructor() {
+        // Setting up the canvas and context
         this.canvas = document.getElementById("game");
         this.canvas.width = window.innerWidth/1.4;
         this.canvas.height = window.innerHeight/2;
@@ -27,9 +29,12 @@ class Game {
         this.cardHeight = this.playerCardImg.height;
         this.pCardX = 25;
         this.pCardY = 25;
+
+        // Creating an audio object for when the cards move
+        this.cardSound = new Audio("./sounds/play_card.mp3");
     }
 
-    // Timer for the game
+    // Calculates the seconds and minutes
     timerCount() {
         this.seconds++;
         this.secondsElement.innerHTML = this.timerDisplay(this.seconds % 60);
@@ -39,6 +44,7 @@ class Game {
     // Displays the timer numbers correctly
     timerDisplay(time){
         this.timeString = time + "";
+        // Adds a 0 to the time if its only one number
         if (this.timeString.length < 2) {
             return "0" + this.timeString;
         } else {
@@ -80,6 +86,7 @@ class Game {
             // Deals the next card when its clicked
             if (this.isCardClicked(mouseX, mouseY, this.pCardX, this.pCardY)) {
                 deal.dealNextCard(removeTheCard);
+                this.cardSound.play();
             }
         });  
     }
@@ -120,12 +127,10 @@ class Game {
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
 
-            const cardX = 25;
-            const cardY = 125;
-
+            // Checks if we clicked a card
             let clickedACard = null;
 
-            // Looping through all the cards in each column on the table
+            // Looping through each card in each column on the table
             for (let col = 0; col < deal.tableCards.length; col++) {
                 for (let row = 0; row < deal.tableCards[col].length; row++) {
                     const card = deal.tableCards[col][row];
@@ -135,27 +140,29 @@ class Game {
                     // If the card is facing up and has been clicked then it will move the card
                     if (card.faceUp && this.isCardClicked(mouseX, mouseY, cardX, cardY)) {
                         clickedACard = card;
+                        move.onCardClick(clickedACard);
+                        this.winner(move.checkWin());
                         break;
                     }
                 }
             }
 
+            // Players card position
+            const cardX = 25;
+            const cardY = 125;
             // If the players card has been clicked then deal the next card in their deck
-            if (this.isCardClicked(mouseX, mouseY, cardX, cardY)) {
-                clickedACard = deal.nextCard;
-            }
-
-            // Moves the card when clicked on
-            if (clickedACard) {
-                move.onCardClick(clickedACard);
+            if (this.isCardClicked(mouseX, mouseY, cardX, cardY) && deal.nextCard) {
+                move.onCardClick(deal.nextCard);
+                this.winner(move.checkWin());
             }
         });
     }
 
     // Logic for the win condition
-    winner() {
-        // If the player has won then reset the timer
-        if (move.checkWin()) {
+    winner(hasWon) {
+        // If the player has won then stop the timer
+        if (hasWon) {
+            console.log("Games over")
             clearInterval(this.timerCount());
 
             // Getting the data for the leaderboards
@@ -191,8 +198,6 @@ window.startGame = function() {
     game.mouseChange();
     game.dealNextCard();
     game.playCards();
-    
-    game.winner();
 
     // Sets the game timer to run every second
     setInterval(()=>game.timerCount(), 1000)      

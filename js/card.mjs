@@ -8,8 +8,10 @@ export class Card {
     
     // Making the pack of cards and putting them in the pack array
     buildPack() {
+        // Looping through every possible suit and rank combination
         for (let suits of this.suit){
             for (let ranks of this.rank) {
+                // Making an object for each card and pushing it into the pack
                 this.pack.push({
                     suit: suits,
                     rank: ranks,
@@ -53,8 +55,10 @@ export class Card {
 
     // Preloads the images to prevent wierd z-index problems
     preLoadImages() {
+        // An object which will hold all the images
         this.image = {};
 
+        // For every card in the pack, load the front and back images
         this.pack.forEach(card => {
             const img = new Image();
             img.src = `images/cards/${card.img}`;
