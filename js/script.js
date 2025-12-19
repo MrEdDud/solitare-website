@@ -16,7 +16,7 @@ const fallTime = 10000;
 function createFallingCard() {
     // Declaring image path constant
     const index = Math.floor(Math.random() * cards.pack.length)
-    const image = `../images/cards/${cards.pack[index].img}`;
+    const image = `images/cards/${cards.pack[index].img}`;
     
     // Declaring a constant to make the card into an element
     const card = document.createElement("img");
